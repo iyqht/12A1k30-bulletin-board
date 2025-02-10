@@ -91,19 +91,31 @@ h2 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.food-item {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 1rem;
+.food-section {
   margin-bottom: 2rem;
+}
+
+.food-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+      minmax(300px, 1fr));
+  /* Responsive grid */
+  grid-gap: 20px;
+}
+
+.food-item {
+  background-color: #fff;
   padding: 1rem;
-  border: 1px solid #ddd;
   border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  /* Center text within food items */
 }
 
 .food-item img {
   max-width: 100%;
   height: auto;
+  margin-bottom: 0.5rem;
 }
 
 footer {
