@@ -55,7 +55,7 @@ const ambientLight = new THREE.AmbientLight(0x333333);
 scene.add(ambientLight);
 
 const pointLight = new THREE.PointLight(0xffffff, 5000, 1000);
-scene.add(pointLight);
+//scene.add(pointLight);
 
 const cubeTextureLoader = new THREE.CubeTextureLoader();
 scene.background = cubeTextureLoader.load([
