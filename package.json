@@ -1,6 +1,5 @@
 {
-  "homepage": "https://github.com/iyqht/website-project/",
-  "type": "module",
+  "homepage": "https://iyqht.github.io/website-project",
   "dependencies": {
     "gsap": "^3.12.7",
     "lil-gui": "^0.20.0",
@@ -12,6 +11,7 @@
     "vite": "^6.1.1"
   },
   "scripts": {
+    "dev": "vite",
     "build": "vite build",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview"
