@@ -2,10 +2,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GUI } from "lil-gui";
 import { gsap } from "gsap";
-//import {
-//  CSS2DObject,
-//  CSS2DRenderer,
-//} from "three/examples/jsm/renderers/CSS2DRenderer";
 
 import starsTexture from "./img/stars.jpg";
 import sunTexture from "./img/sun.jpg";
@@ -189,7 +185,7 @@ function unreveal() {
 const mousePos = new THREE.Vector2();
 const raycaster = new THREE.Raycaster();
 
-window.addEventListener("click", function (e) {
+window.addEventListener("click", function(e) {
   mousePos.x = (e.clientX / this.window.innerWidth) * 2 - 1;
   mousePos.y = -(e.clientY / this.window.innerHeight) * 2 + 1;
   raycaster.setFromCamera(mousePos, camera);
@@ -205,7 +201,7 @@ window.addEventListener("click", function (e) {
       z: center.z + 2 * size.z,
       duration: 1.5,
       ease: "none",
-      onUpdate: function () {
+      onUpdate: function() {
         camera.lookAt(center);
         control.target = center;
         control.update();
@@ -222,7 +218,7 @@ const options = {
   Light: false,
   Speed: 0,
 };
-gui.add(options, "Light").onChange(function (e) {
+gui.add(options, "Light").onChange(function(e) {
   ambientLight.intensity = e;
   ambientLight.color.set(0xffffff);
 });
@@ -258,7 +254,7 @@ function animate() {
 
 renderer.setAnimationLoop(animate);
 
-window.addEventListener("resize", function () {
+window.addEventListener("resize", function() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
