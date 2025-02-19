@@ -1,31 +1,33 @@
-<!DOCTYPE hmtl>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hệ Mặt Trời</title>
+  <title>Solar System</title>
   <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 
 <body>
-  <div class="container">
-    <div class="sun">
-      <img src="images/sun.png" alt="sun" />
+  <canvas id="solar"></canvas>
+  <div class="desc" onclick="reveal()">
+    <div class="desctext" id="mercury">
+      <p>1. Sao Thủy (Mercury)</p>
+      <p>
+        Cấu tạo: Lõi kim loại lớn, lớp phủ silicat mỏng, bề mặt đầy hố va
+        chạm.
+      </p>
+      <p>
+        Cấu trúc: Không có khí quyển rõ rệt, nhiệt độ chênh lệch cực lớn
+        (430°C ban ngày, -180°C ban đêm).
+      </p>
+      <p>
+        Kích thước: Đường kính khoảng 4,880 km, nhỏ nhất trong Hệ Mặt Trời.
+      </p>
     </div>
-    <div class="mercury"></div>
-    <div class="venus"></div>
-    <div class="earth">
-      <div class="moon"></div>
-    </div>
-    <div class="mars"></div>
-    <div class="jupiter"></div>
-    <div class="saturn"></div>
-    <div class="uranus"></div>
-    <div class="neptune"></div>
-    <div class="pluto"></div>
   </div>
-  <script src="./main.js"></script>
+  <script src="./main.js" type="module"></script>
 </body>
 
 </html>
