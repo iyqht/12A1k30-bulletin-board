@@ -180,12 +180,16 @@ scene.add(solarSystem);
 
 function reveal(name) {
   const desc = document.getElementById(name);
-  desc.classList.toggle("show");
+  desc.classList.add("show");
+}
+function unreveal() {
+  const desc = document.getElementsByClassName("desctext show");
+  desc[0].classList.remove("show");
 }
 const mousePos = new THREE.Vector2();
 const raycaster = new THREE.Raycaster();
 
-window.addEventListener("click", function(e) {
+window.addEventListener("click", function (e) {
   mousePos.x = (e.clientX / this.window.innerWidth) * 2 - 1;
   mousePos.y = -(e.clientY / this.window.innerHeight) * 2 + 1;
   raycaster.setFromCamera(mousePos, camera);
@@ -196,18 +200,20 @@ window.addEventListener("click", function(e) {
     var size = tempV.getSize(new THREE.Vector3());
     console.log(tempV);
     gsap.to(camera.position, {
-      x: center.x - size.x,
-      y: center.y + size.y,
-      z: center.z + size.z,
+      x: center.x - 2 * size.x,
+      y: center.y + 2 * size.y,
+      z: center.z + 2 * size.z,
       duration: 1.5,
       ease: "none",
-      onUpdate: function() {
+      onUpdate: function () {
         camera.lookAt(center);
         control.target = center;
         control.update();
       },
     });
     reveal(intersects[0].object.name);
+  } else {
+    unreveal();
   }
 });
 
@@ -216,7 +222,7 @@ const options = {
   Light: false,
   Speed: 0,
 };
-gui.add(options, "Light").onChange(function(e) {
+gui.add(options, "Light").onChange(function (e) {
   ambientLight.intensity = e;
   ambientLight.color.set(0xffffff);
 });
@@ -252,7 +258,7 @@ function animate() {
 
 renderer.setAnimationLoop(animate);
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);

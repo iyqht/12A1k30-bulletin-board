@@ -3,71 +3,55 @@ body {
 }
 
 canvas {
-  /*width: 100%;*/
-  /*height: 100%;*/
-  /*display: block;*/
   position: fixed;
   top: 0;
   left: 0;
 }
 
 .desc {
-  position: relative;
-  display: flex;
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  top: 30%;
+  left: 25%;
 }
 
 .desc .desctext {
+  grid-column: 2/8;
   visibility: hidden;
-  position: absolute;
-  background-color: #555;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.8);
   border: 2px solid white;
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  position: absolute;
+  z-index: 1;
 }
 
 .desc .show {
   visibility: visible;
-  /*-webkit-animation: fadeIn 1s;*/
-  /*animation: fadeIn 1s*/
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
 }
 
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 
-.label {
-  /*position: absolute;*/
-  /* let us position ourself inside the container */
-  left: 0;
-  /* make our position the top left of the container */
-  top: 0;
-  color: white;
+  to {
+    opacity: 1;
+  }
 }
 
-.label>div {
-  /*position: absolute;*/
-  /* let us position them inside the container */
-  left: 0;
-  /* make their default position the top left of the container */
-  top: 0;
-  color: white;
-  cursor: pointer;
-  /* change the cursor to a hand when over us */
-  font-size: large;
-  user-select: none;
-  /* don't let the text get selected */
-  text-shadow:
-    /* create a black outline */
-    -1px -1px 0 #000,
-    0 -1px 0 #000,
-    1px -1px 0 #000,
-    1px 0 0 #000,
-    1px 1px 0 #000,
-    0 1px 0 #000,
-    -1px 1px 0 #000,
-    -1px 0 0 #000;
-}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 
-.label>div:hover {
-  color: red;
+  to {
+    opacity: 1;
+  }
 }
