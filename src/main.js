@@ -3,20 +3,20 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GUI } from "lil-gui";
 import { gsap } from "gsap";
 
-import starsTexture from "./img/stars.jpg";
-import sunTexture from "./img/sun.jpg";
-import mercuryTexture from "./img/mercury.jpg";
-import venusTexture from "./img/venus_surface.jpg";
-import venusAtmosphereTexture from "./img/venus_atmosphere.jpg";
-import earthTexture from "./img/earth.png";
-import cloudsTexture from "./img/clouds.jpg";
-import marsTexture from "./img/mars.jpg";
-import jupiterTexture from "./img/jupiter.jpg";
-import saturnTexture from "./img/saturn.jpg";
-import saturnRingTexture from "./img/saturn_ring.png";
-import uranusTexture from "./img/uranus.jpg";
-import uranusRingTexture from "./img/uranus_ring.png";
-import neptuneTexture from "./img/neptune.jpg";
+import starsTexture from "./assets/stars.jpg";
+import sunTexture from "./assets/sun.jpg";
+import mercuryTexture from "./assets/mercury.jpg";
+import venusTexture from "./assets/venus_surface.jpg";
+import venusAtmosphereTexture from "./assets/venus_atmosphere.jpg";
+import earthTexture from "./assets/earth.png";
+import cloudsTexture from "./assets/clouds.jpg";
+import marsTexture from "./assets/mars.jpg";
+import jupiterTexture from "./assets/jupiter.jpg";
+import saturnTexture from "./assets/saturn.jpg";
+import saturnRingTexture from "./assets/saturn_ring.png";
+import uranusTexture from "./assets/uranus.jpg";
+import uranusRingTexture from "./assets/uranus_ring.png";
+import neptuneTexture from "./assets/neptune.jpg";
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.body.querySelector("#solar"),
@@ -185,7 +185,7 @@ function unreveal() {
 const mousePos = new THREE.Vector2();
 const raycaster = new THREE.Raycaster();
 
-window.addEventListener("click", function(e) {
+window.addEventListener("click", function (e) {
   mousePos.x = (e.clientX / this.window.innerWidth) * 2 - 1;
   mousePos.y = -(e.clientY / this.window.innerHeight) * 2 + 1;
   raycaster.setFromCamera(mousePos, camera);
@@ -201,7 +201,7 @@ window.addEventListener("click", function(e) {
       z: center.z + 2 * size.z,
       duration: 1.5,
       ease: "none",
-      onUpdate: function() {
+      onUpdate: function () {
         camera.lookAt(center);
         control.target = center;
         control.update();
@@ -218,7 +218,7 @@ const options = {
   Light: false,
   Speed: 0,
 };
-gui.add(options, "Light").onChange(function(e) {
+gui.add(options, "Light").onChange(function (e) {
   ambientLight.intensity = e;
   ambientLight.color.set(0xffffff);
 });
@@ -254,7 +254,7 @@ function animate() {
 
 renderer.setAnimationLoop(animate);
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
