@@ -1,4 +1,6 @@
 {
+  "homepage": "https://github.com/iyqht/website-project/",
+  "type": "module",
   "dependencies": {
     "gsap": "^3.12.7",
     "lil-gui": "^0.20.0",
