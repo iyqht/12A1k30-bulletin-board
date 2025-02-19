@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/iyqht/website-project/",
+  "homepage": "https://iyqht.github.io/website-project/",
   "type": "module",
   "dependencies": {
     "gsap": "^3.12.7",
