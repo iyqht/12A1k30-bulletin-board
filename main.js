@@ -3,6 +3,21 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GUI } from "lil-gui";
 import { gsap } from "gsap";
 
+import starsTexture from "./stars.jpg";
+import sunTexture from "./sun.jpg";
+import mercuryTexture from "./mercury.jpg";
+import venusTexture from "./venus_surface.jpg";
+import venusAtmosphereTexture from "./venus_atmosphere.jpg";
+import earthTexture from "./earth.png";
+import cloudsTexture from "./clouds.jpg";
+import marsTexture from "./mars.jpg";
+import jupiterTexture from "./jupiter.jpg";
+import saturnTexture from "./saturn.jpg";
+import saturnRingTexture from "./saturn_ring.png";
+import uranusTexture from "./uranus.jpg";
+import uranusRingTexture from "./uranus_ring.png";
+import neptuneTexture from "./neptune.jpg";
+
 const renderer = new THREE.WebGLRenderer({
   canvas: document.body.querySelector("#solar"),
 });
@@ -10,6 +25,13 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 document.body.appendChild(renderer.domElement);
+
+//const labelRenderer = new CSS2DRenderer();
+//labelRenderer.setSize(window.innerHeight, window.innerHeight);
+//labelRenderer.domElement.style.position = "absolute";
+//labelRenderer.domElement.style.top = "0";
+//labelRenderer.domElement.style.pointerEvents = "none";
+//document.body.appendChild(labelRenderer.domElement);
 
 const scene = new THREE.Scene();
 
@@ -33,19 +55,19 @@ scene.add(pointLight);
 
 const cubeTextureLoader = new THREE.CubeTextureLoader();
 scene.background = cubeTextureLoader.load([
-  "./assets/stars.jpg",
-  "./assets/stars.jpg",
-  "./assets/stars.jpg",
-  "./assets/stars.jpg",
-  "./assets/stars.jpg",
-  "./assets/stars.jpg",
+  starsTexture,
+  starsTexture,
+  starsTexture,
+  starsTexture,
+  starsTexture,
+  starsTexture,
 ]);
 
 const textureLoader = new THREE.TextureLoader();
 
 const sunGeo = new THREE.SphereGeometry(24, 30, 30);
 const sunMat = new THREE.MeshBasicMaterial({
-  map: textureLoader.load("./assets/sun.jpg"),
+  map: textureLoader.load(sunTexture),
 });
 const sun = new THREE.Mesh(sunGeo, sunMat);
 sun.name = "sun";
@@ -103,59 +125,32 @@ function createPlanete(name, size, texture, position, ring) {
   return { mesh, obj };
 }
 
-const mercury = createPlanete(
-  "mercury",
-  3.2,
-  { base: "./assets/mercury.jpg" },
-  28,
-);
+const mercury = createPlanete("mercury", 3.2, { base: mercuryTexture }, 28);
 const venus = createPlanete(
   "venus",
   5.8,
-  { base: "./assets/venus_surface.jpg", topo: "./assets/venus_atmosphere.jpg" },
+  { base: venusTexture, topo: venusAtmosphereTexture },
   44,
 );
 const earth = createPlanete(
   "earth",
   6,
-  { base: "./assets/earth.png", topo: "./assets/clouds.jpg" },
+  { base: earthTexture, topo: cloudsTexture },
   62,
 );
-const mars = createPlanete("mars", 4, { base: "./assets/mars.jpg" }, 78);
-const jupiter = createPlanete(
-  "jupiter",
-  12,
-  { base: "./assets/jupiter.jpg" },
-  100,
-);
-const saturn = createPlanete(
-  "saturn",
-  10,
-  { base: "./assets/saturn.jpg" },
-  138,
-  {
-    innerRadius: 10,
-    outerRadius: 20,
-    texture: "./assets/saturn_ring.png",
-  },
-);
-const uranus = createPlanete(
-  "uranus",
-  7,
-  { base: "./assets/uranus.jpg" },
-  176,
-  {
-    innerRadius: 7,
-    outerRadius: 12,
-    texture: "./assets/uranus_ring.png",
-  },
-);
-const neptune = createPlanete(
-  "neptune",
-  7,
-  { base: "./assets/neptune.jpg" },
-  200,
-);
+const mars = createPlanete("mars", 4, { base: marsTexture }, 78);
+const jupiter = createPlanete("jupiter", 12, { base: jupiterTexture }, 100);
+const saturn = createPlanete("saturn", 10, { base: saturnTexture }, 138, {
+  innerRadius: 10,
+  outerRadius: 20,
+  texture: saturnRingTexture,
+});
+const uranus = createPlanete("uranus", 7, { base: uranusTexture }, 176, {
+  innerRadius: 7,
+  outerRadius: 12,
+  texture: uranusRingTexture,
+});
+const neptune = createPlanete("neptune", 7, { base: neptuneTexture }, 200);
 
 const solarSystem = new THREE.Group();
 solarSystem.add(
@@ -190,7 +185,7 @@ function unreveal() {
 const mousePos = new THREE.Vector2();
 const raycaster = new THREE.Raycaster();
 
-window.addEventListener("click", function(e) {
+window.addEventListener("click", function (e) {
   mousePos.x = (e.clientX / this.window.innerWidth) * 2 - 1;
   mousePos.y = -(e.clientY / this.window.innerHeight) * 2 + 1;
   raycaster.setFromCamera(mousePos, camera);
@@ -206,7 +201,7 @@ window.addEventListener("click", function(e) {
       z: center.z + 2 * size.z,
       duration: 1.5,
       ease: "none",
-      onUpdate: function() {
+      onUpdate: function () {
         camera.lookAt(center);
         control.target = center;
         control.update();
@@ -223,7 +218,7 @@ const options = {
   Light: false,
   Speed: 0,
 };
-gui.add(options, "Light").onChange(function(e) {
+gui.add(options, "Light").onChange(function (e) {
   ambientLight.intensity = e;
   ambientLight.color.set(0xffffff);
 });
@@ -259,7 +254,7 @@ function animate() {
 
 renderer.setAnimationLoop(animate);
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
