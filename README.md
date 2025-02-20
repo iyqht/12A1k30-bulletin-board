@@ -4,7 +4,7 @@ Mục tiêu hiện tại là một website về các hành tinh trong hệ Mặt
 
 Link: https://iyqht.github.io/website-project/
 
-Nếu muốn chạy thử ở máy thì trước tiên cần có [Node.js](nodejs.org).
+Nếu muốn chạy thử ở máy thì trước tiên cần có [Node.js](https://www.nodejs.org).
 
 Sau đó thì làm theo các bước sau:
 
