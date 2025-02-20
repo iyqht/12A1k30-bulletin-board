@@ -8,8 +8,8 @@ Nếu muốn chạy thử ở máy thì trước tiên cần có [Node.js](https
 
 Sau đó thì làm theo các bước sau:
 
-Clone cái repo này:
-`git clone https://github.com/iyqht/website-project`
+Clone repo và di chuyển vào nó:
+`git clone https://github.com/iyqht/website-project && cd website-project`
 
 Cài đặt các dependencies:
 `npm install`
