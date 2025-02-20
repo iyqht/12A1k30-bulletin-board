@@ -1,5 +1,6 @@
 {
-  "homepage": "https://iyqht.github.io/website-project",
+  "name": "Vision-on-the-Solar-System",
+  "version": "1.0.0",
   "dependencies": {
     "gsap": "^3.12.7",
     "lil-gui": "^0.20.0",
