@@ -3,20 +3,20 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GUI } from "lil-gui";
 import { gsap } from "gsap";
 
-import starsTexture from "./stars.jpg";
-import sunTexture from "./sun.jpg";
-import mercuryTexture from "./mercury.jpg";
-import venusTexture from "./venus_surface.jpg";
-import venusAtmosphereTexture from "./venus_atmosphere.jpg";
-import earthTexture from "./earth.png";
-import cloudsTexture from "./clouds.jpg";
-import marsTexture from "./mars.jpg";
-import jupiterTexture from "./jupiter.jpg";
-import saturnTexture from "./saturn.jpg";
-import saturnRingTexture from "./saturn_ring.png";
-import uranusTexture from "./uranus.jpg";
-import uranusRingTexture from "./uranus_ring.png";
-import neptuneTexture from "./neptune.jpg";
+import starsTexture from "./assets/stars.jpg";
+import sunTexture from "./assets/sun.jpg";
+import mercuryTexture from "./assets/mercury.jpg";
+import venusTexture from "./assets/venus_surface.jpg";
+import venusAtmosphereTexture from "./assets/venus_atmosphere.jpg";
+import earthTexture from "./assets/earth.png";
+import cloudsTexture from "./assets/clouds.jpg";
+import marsTexture from "./assets/mars.jpg";
+import jupiterTexture from "./assets/jupiter.jpg";
+import saturnTexture from "./assets/saturn.jpg";
+import saturnRingTexture from "./assets/saturn_ring.png";
+import uranusTexture from "./assets/uranus.jpg";
+import uranusRingTexture from "./assets/uranus_ring.png";
+import neptuneTexture from "./assets/neptune.jpg";
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.body.querySelector("#solar"),
